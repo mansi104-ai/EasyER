@@ -1,0 +1,15 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Diagram {
+  id        String   @id @default(uuid()) // Primary key
+  svg       String   // Stores SVG diagram
+  createdAt DateTime @default(now()) // Auto-timestamp
+}

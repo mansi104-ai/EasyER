@@ -13,8 +13,8 @@ CORS(app)
 
 # Load environment variables
 load_dotenv()
-DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
-deepseek.api_key = DEEPSEEK_API_KEY
+DEEPSEEK_API_KEY ="sk-6b0d4e928de54ae28bda5d57452ead11"
+# deepseek.api_key = DEEPSEEK_API_KEY
 
 def generate_er_structure(prompt):
     """Generate ER diagram structure using DeepSeek"""
