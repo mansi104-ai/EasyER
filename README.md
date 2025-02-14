@@ -1,4 +1,4 @@
-# ER Diagram Generator
+# EasyER
 
 An AI-powered Entity-Relationship Diagram generator that allows users to create professional ER diagrams through both manual input and file upload.
 
