@@ -27,6 +27,7 @@ def generate_er_structure(prompt):
                     "content": "You are an expert in database design and ER diagrams. Generate a JSON structure for an ER diagram based on the user's description. Include entities, attributes, and relationships."
                 },
                 {
+                    
                     "role": "user",
                     "content": prompt
                 }
