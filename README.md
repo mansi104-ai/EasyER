@@ -4,7 +4,7 @@
 </div>
 
 <div align = "center" >
-<font-size= "25">EasyER</font>
+<font-size= "100">EasyER</font>
 </div>
 
 ✨✨An interactive web application for creating and managing Entity-Relationship diagrams with real-time collaboration features.✨✨
