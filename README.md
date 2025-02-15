@@ -1,6 +1,6 @@
 
 <div align="center">
-  <img src="https://github.com/mansi104-ai/EasyER/blob/main/logo.png" alt="EasyER Logo" height="200">
+  <img src="https://github.com/mansi104-ai/EasyER/blob/main/logo_final.png" alt="EasyER Logo" height="200">
 </div>
 
 # EasyER
