@@ -3,8 +3,8 @@
   <img src="https://github.com/mansi104-ai/EasyER/blob/main/logo_final.png" alt="EasyER Logo" height="200">
 </div>
 
-<div align = "center">
-# EasyER
+<div align = "center" >
+<font-size= "25">EasyER</font>
 </div>
 
 ✨✨An interactive web application for creating and managing Entity-Relationship diagrams with real-time collaboration features.✨✨
@@ -18,7 +18,6 @@
 - Collaborative editing
 - File upload support for importing existing diagrams
 
-## Tech Stack
 
 ## Tech Stack
 
