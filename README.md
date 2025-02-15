@@ -1,4 +1,3 @@
-<div align="center">
 
 <div align="center">
   <img src="https://github.com/mansi104-ai/EasyER/blob/main/logo.png" alt="EasyER Logo" height="300">
