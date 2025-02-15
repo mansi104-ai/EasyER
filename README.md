@@ -3,9 +3,11 @@
   <img src="https://github.com/mansi104-ai/EasyER/blob/main/logo_final.png" alt="EasyER Logo" height="200">
 </div>
 
+<div align = "center">
 # EasyER
+</div>
 
-An interactive web application for creating and managing Entity-Relationship diagrams with real-time collaboration features.
+✨✨An interactive web application for creating and managing Entity-Relationship diagrams with real-time collaboration features.✨✨
 
 ## Features
 
@@ -18,12 +20,24 @@ An interactive web application for creating and managing Entity-Relationship dia
 
 ## Tech Stack
 
-- Next.js 14 (App Router)
-- TypeScript
-- Prisma
-- PostgreSQL
-- shadcn/ui
-- Tailwind CSS
+## Tech Stack
+
+### Machine Learning & Tools  
+[![DeepSeek](https://img.shields.io/badge/DeepSeek-FF6B6B?style=for-the-badge&logo=ai&logoColor=white)](https://deepseek.com/)  
+[![Graphviz](https://img.shields.io/badge/Graphviz-2596be?style=for-the-badge&logo=graphviz&logoColor=white)](https://graphviz.gitlab.io/)  
+<!-- [![Machine Learning](https://img.shields.io/badge/Machine_Learning-F7931E?style=for-the-badge&logo=python&logoColor=white)](https://scikit-learn.org/) -->
+
+### Frontend  
+[![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)](https://nextjs.org/)  
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)  
+[![shadcn/ui](https://img.shields.io/badge/shadcn/ui-%23000000.svg?style=for-the-badge&logo=react&logoColor=white)](https://ui.shadcn.com/)  
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+
+### Backend  
+[![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white)](https://www.prisma.io/)  
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)  
+[![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+
 
 ## Prerequisites
 
@@ -76,10 +90,10 @@ Visit `http://localhost:3000` to start using the application.
 
 The application uses the following database models:
 
-- Diagram: Stores diagram metadata and content
-- User: User authentication and preferences
-- History: Tracks diagram changes and versions
-- Collaboration: Manages shared access and permissions
+- 📐Diagram: Stores diagram metadata and content
+- 👩🏽‍💻User: User authentication and preferences
+- ⏱️History: Tracks diagram changes and versions
+- 🔗Collaboration: Manages shared access and permissions
 
 ## API Routes
 
