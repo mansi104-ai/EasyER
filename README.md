@@ -1,12 +1,10 @@
 <div align="center">
 
 <div align="center">
-  <img src="https://github.com/arsana-labs/sowa/blob/543e23a093b43ab8bef4a3fc23da6d30fca801e2/logo.png" alt="EasyER Logo" height="300">
+  <img src="https://github.com/mansi104-ai/EasyER/blob/main/logo.png" alt="EasyER Logo" height="300">
 </div>
 
-
-
-<!-- # EasyER -->
+# EasyER
 
 An interactive web application for creating and managing Entity-Relationship diagrams with real-time collaboration features.
 
