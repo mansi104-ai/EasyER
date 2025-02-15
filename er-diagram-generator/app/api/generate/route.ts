@@ -1,17 +1,19 @@
-import { NextResponse } from "next/server"
+import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
-    const { entities, relationships } = await req.json()
+    const { entities, relationships } = await req.json();
 
-    // Call your backend service to generate the diagram
-    // This is a placeholder. Replace with your actual diagram generation logic
-    const diagram = `<svg><!-- Your generated SVG here --></svg>`
+    if (!entities || !relationships) {
+      return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+    }
 
-    return NextResponse.json({ diagram })
+    // Generate ER diagram logic (replace with actual implementation)
+    const diagram = `<svg><!-- Generated ER diagram here --></svg>`;
+
+    return NextResponse.json({ success: true, diagram });
   } catch (error) {
-    console.error("Error:", error)
-    return NextResponse.json({ error: "Failed to generate diagram" }, { status: 500 })
+    console.error("Error:", error);
+    return NextResponse.json({ error: "Failed to generate diagram" }, { status: 500 });
   }
 }
-

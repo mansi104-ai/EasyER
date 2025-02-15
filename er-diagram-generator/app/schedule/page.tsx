@@ -1,27 +1,26 @@
-"use client"
+"use client";
 
-import { useEffect } from "react"
-import { Card } from "@/components/ui/card"
+import { useEffect } from "react";
+import { Card } from "@/components/ui/card";
 
 export default function SchedulePage() {
   useEffect(() => {
-    // Load Cal.com script
-    const script = document.createElement("script")
-    script.src = "https://app.cal.com/embed.js"
-    script.async = true
-    document.body.appendChild(script)
+    const script = document.createElement("script");
+    script.src = "https://app.cal.com/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
 
     return () => {
-      document.body.removeChild(script)
-    }
-  }, [])
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="text-4xl font-bold mb-6">Schedule a Meeting</h1>
       <Card className="p-6">
         <p className="mb-4">
-          Use the calendar below to schedule a meeting with our team. We're excited to discuss how ER Diagram Generator
+          Use the calendar below to schedule a meeting with our team. We&rsquo;re excited to discuss how EasyER 
           can help with your project!
         </p>
         <div
@@ -31,6 +30,5 @@ export default function SchedulePage() {
         />
       </Card>
     </div>
-  )
+  );
 }
-
