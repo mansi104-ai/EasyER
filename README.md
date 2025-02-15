@@ -3,11 +3,11 @@
   <img src="https://github.com/mansi104-ai/EasyER/blob/main/logo_final.png" alt="EasyER Logo" height="200">
 </div>
 
-<div align = "center" >
-<font-size= "25">EasyER</font>
-</div>
+<br/>
 
-✨✨An interactive web application for creating and managing Entity-Relationship diagrams with real-time collaboration features.✨✨
+# EasyER
+
+### ✨✨An interactive web application for creating and managing Entity-Relationship diagrams with real-time collaboration features.✨✨
 
 ## Features
 
