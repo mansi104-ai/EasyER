@@ -121,7 +121,7 @@ export default function Page() {
         <div className="w-full md:w-1/3">
           <Card className="p-6 space-y-6">
             <div className="flex items-center justify-between">
-              <Label htmlFor="manual-mode">Manual Mode</Label>
+            <Label htmlFor="manual-mode" className="text-xl ">{isManualMode? "Automatic Mode":"Manual Mode"}</Label>
               <Switch id="manual-mode" checked={isManualMode} onCheckedChange={setIsManualMode} />
             </div>
 
