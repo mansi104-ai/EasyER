@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 import { ThemeToggle } from "./theme-toggle"
 
 export function Navigation() {
@@ -7,6 +8,12 @@ export function Navigation() {
     <nav className="border-b bg-background">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <Link href="/" className="flex items-center space-x-2">
+          <Image
+          src ="/logo_final.png"
+          alt="ERDiagram"
+          width={35}
+          height={35}
+          ></Image>
           <span className="text-xl font-bold">ERDiagram</span>
         </Link>
         <div className="flex items-center space-x-6">
