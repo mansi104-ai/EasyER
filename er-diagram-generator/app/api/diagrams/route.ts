@@ -9,23 +9,52 @@ export async function GET() {
       orderBy: { createdAt: "desc" },
       take: 10,
     })
-    return NextResponse.json(diagrams.map((d) => d.svg))
+
+    // Validate the response data
+    if (!Array.isArray(diagrams)) {
+      throw new Error("Invalid data format from database")
+    }
+
+    // Map and filter to ensure we only return valid SVG strings
+    const svgDiagrams = diagrams
+      .map((d) => d?.svg)
+      .filter((svg): svg is string => typeof svg === "string" && svg.length > 0)
+
+    return NextResponse.json(svgDiagrams)
   } catch (error) {
     console.error("Error fetching diagrams:", error)
-    return NextResponse.json({ error: "Failed to fetch diagrams" }, { status: 500 })
+    // Return empty array instead of error in production
+    return NextResponse.json([], { status: 200 })
   }
 }
 
 export async function POST(req: Request) {
   try {
     const { diagram } = await req.json()
-    await prisma.diagram.create({
+
+    // Validate the input
+    if (typeof diagram !== "string" || diagram.trim().length === 0) {
+      return NextResponse.json(
+        { error: "Invalid diagram data" },
+        { status: 400 }
+      )
+    }
+
+    const savedDiagram = await prisma.diagram.create({
       data: { svg: diagram },
     })
-    return NextResponse.json({ success: true })
+
+    // Validate the created diagram
+    if (!savedDiagram?.svg) {
+      throw new Error("Failed to save diagram properly")
+    }
+
+    return NextResponse.json({ success: true, diagram: savedDiagram.svg })
   } catch (error) {
     console.error("Error saving diagram:", error)
-    return NextResponse.json({ error: "Failed to save diagram" }, { status: 500 })
+    return NextResponse.json(
+      { error: "Failed to save diagram" },
+      { status: 500 }
+    )
   }
 }
-

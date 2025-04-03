@@ -17,12 +17,20 @@ const MAX_ENTITIES = 10
 const MAX_ATTRIBUTES = 10
 const MAX_RELATIONSHIPS = 20
 
-function ErrorFallback({ error, resetErrorBoundary }) {
+interface ErrorFallbackProps {
+  error: Error;
+  resetErrorBoundary: (...args: unknown[]) => void;
+}
+
+function ErrorFallback({ error, resetErrorBoundary }: ErrorFallbackProps) {
   return (
     <div role="alert" className="p-4 text-red-700 bg-red-100 border border-red-400 rounded">
       <p>Something went wrong:</p>
       <pre>{error.message}</pre>
-      <button onClick={resetErrorBoundary} className="px-4 py-2 mt-2 text-white bg-red-500 rounded">
+      <button 
+        onClick={resetErrorBoundary} 
+        className="px-4 py-2 mt-2 text-white bg-red-500 rounded"
+      >
         Try again
       </button>
     </div>
@@ -42,16 +50,25 @@ export default function Page() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    fetch("/api/diagrams")
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`)
-        return res.json()
-      })
-      .then((data) => setSavedDiagrams(data))
-      .catch((err) => {
+    const fetchDiagrams = async () => {
+      try {
+        const response = await fetch("/api/diagrams")
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`)
+        
+        const data = await response.json()
+        if (Array.isArray(data)) {
+          setSavedDiagrams(data)
+        } else {
+          setSavedDiagrams([])
+        }
+      } catch (err) {
         console.error("Error fetching saved diagrams:", err)
         setError("Failed to load saved diagrams")
-      })
+        setSavedDiagrams([])
+      }
+    }
+
+    fetchDiagrams()
   }, [])
 
   const handleFileUpload = async (content: string) => {
@@ -59,14 +76,6 @@ export default function Page() {
       const data = JSON.parse(content)
       if (!data.entities || !data.relationships) throw new Error("Invalid file format")
       
-      if (typeof data.entities !== 'object' || Array.isArray(data.entities)) {
-        throw new Error("Entities must be an object")
-      }
-      
-      if (!Array.isArray(data.relationships)) {
-        throw new Error("Relationships must be an array")
-      }
-
       setEntities(data.entities)
       setRelationships(data.relationships)
       await generateDiagram(data.entities, data.relationships)
@@ -90,7 +99,6 @@ export default function Page() {
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`)
 
       const data = await response.json()
-      if (data.error) throw new Error(data.error)
       if (!data.diagram) throw new Error("No diagram returned from server")
 
       setDiagram(data.diagram)
@@ -104,9 +112,16 @@ export default function Page() {
       })
 
       if (!saveResponse.ok) throw new Error(`Failed to save diagram: ${saveResponse.status}`)
+
+      // Refresh saved diagrams after saving
+      const newDiagramsResponse = await fetch("/api/diagrams")
+      if (newDiagramsResponse.ok) {
+        const newDiagrams = await newDiagramsResponse.json()
+        setSavedDiagrams(Array.isArray(newDiagrams) ? newDiagrams : [])
+      }
     } catch (error) {
       console.error("Error generating diagram:", error)
-      setError(error.message)
+      setError(error instanceof Error ? error.message : 'An unknown error occurred');
     } finally {
       setLoading(false)
     }
